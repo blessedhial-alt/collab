@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warrior Feast Dashboard</title>
+  <title>360° Laptop Showcase</title>
   <style>
     /* General Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,105 +15,70 @@
       overflow-x: hidden;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1506748686210-9d4c2b2b1f2b') center/cover no-repeat;
-      background-attachment: fixed;
+    /* Header */
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    /* Main Content */
+    .main-content {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    /* Dashboard Cards */
-    .dashboard {
-      display: flex;
-      justify-content: space-around;
       padding: 50px 20px;
       flex-wrap: wrap;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      padding: 20px;
-      width: 250px;
-      margin: 10px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-
-    /* 3D Food Menu */
-    .menu {
-      display: flex;
-      justify-content: center;
-      padding: 50px 20px;
-      flex-wrap: wrap;
-    }
-
-    .menu-item {
+    .laptop-container {
       perspective: 1000px;
       margin: 20px;
     }
 
-    .menu-item .card {
-      width: 200px;
-      height: 300px;
+    .laptop {
+      width: 300px;
+      height: 200px;
       transform-style: preserve-3d;
-      transform: rotateX(0deg) rotateY(0deg);
-      transition: transform 0.6s;
+      transform: rotateY(0deg);
+      transition: transform 1s;
     }
 
-    .menu-item:hover .card {
-      transform: rotateY(180deg);
-    }
-
-    .menu-item .card .front,
-    .menu-item .card .back {
-      position: absolute;
+    .laptop img {
       width: 100%;
       height: 100%;
-      backface-visibility: hidden;
       border-radius: 10px;
     }
 
-    .menu-item .card .front {
-      background: #fff;
+    .laptop:hover {
+      transform: rotateY(360deg);
+    }
+
+    /* Gameplay Overlay */
+    .game-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.5s;
     }
 
-    .menu-item .card .back {
-      background: #f8f8f8;
-      transform: rotateY(180deg);
-      padding: 10px;
+    .laptop:hover .game-overlay {
+      opacity: 1;
     }
 
     /* Footer */
@@ -131,76 +96,57 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Warrior Feast</h1>
-  </section>
+  <!-- Header -->
+  <header>
+    <h1>360° Laptop Showcase with Gameplay</h1>
+  </header>
 
-  <!-- Dashboard Cards -->
-  <section class="dashboard">
-    <div class="card">
-      <h3>Orders Today</h3>
-      <p>150</p>
-    </div>
-    <div class="card">
-      <h3>Popular Dish</h3>
-      <p>Grilled Chicken</p>
-    </div>
-    <div class="card">
-      <h3>Customer Rating</h3>
-      <p>4.5/5</p>
-    </div>
-  </section>
-
-  <!-- 3D Food Menu -->
-  <section class="menu">
-    <div class="menu-item">
-      <div class="card">
-        <div class="front">
-          <img src="https://images.unsplash.com/photo-1506748686210-9d4c2b2b1f2b" alt="Dish 1" width="100%" height="100%">
-        </div>
-        <div class="back">
-          <p>Delicious grilled chicken with spices</p>
-        </div>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- MacBook -->
+    <div class="laptop-container">
+      <div class="laptop">
+        <img src="https://example.com/macbook.jpg" alt="MacBook">
+        <div class="game-overlay">Shadow Fight in Action</div>
       </div>
     </div>
-    <div class="menu-item">
-      <div class="card">
-        <div class="front">
-          <img src="https://images.unsplash.com/photo-1506748686210-9d4c2b2b1f2b" alt="Dish 2" width="100%" height="100%">
-        </div>
-        <div class="back">
-          <p>Freshly baked pizza with mozzarella</p>
-        </div>
+    <!-- Lenovo -->
+    <div class="laptop-container">
+      <div class="laptop">
+        <img src="https://example.com/lenovo.jpg" alt="Lenovo">
+        <div class="game-overlay">Shadow Fight in Action</div>
       </div>
     </div>
-    <div class="menu-item">
-      <div class="card">
-        <div class="front">
-          <img src="https://images.unsplash.com/photo-1506748686210-9d4c2b2b1f2b" alt="Dish 3" width="100%" height="100%">
-        </div>
-        <div class="back">
-          <p>Classic Caesar salad with dressing</p>
-        </div>
+    <!-- ASUS -->
+    <div class="laptop-container">
+      <div class="laptop">
+        <img src="https://example.com/asus.jpg" alt="ASUS">
+        <div class="game-overlay">Shadow Fight in Action</div>
       </div>
     </div>
-  </section>
+    <!-- Vectus -->
+    <div class="laptop-container">
+      <div class="laptop">
+        <img src="https://example.com/vectus.jpg" alt="Vectus">
+        <div class="game-overlay">Shadow Fight in Action</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Warrior Feast. All rights reserved.</p>
+    <p>&copy; 2025 360° Laptop Showcase. All rights reserved.</p>
   </footer>
 
   <script>
     // JavaScript for interactive animations
-    document.querySelector('.hero').addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 10;
-      const y = (e.clientY / window.innerHeight - 0.5) * 10;
-      document.querySelector('.hero').style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-    });
-
-    document.querySelector('.hero').addEventListener('mouseleave', () => {
-      document.querySelector('.hero').style.transform = 'rotateX(0deg) rotateY(0deg)';
+    document.querySelectorAll('.laptop').forEach(laptop => {
+      laptop.addEventListener('mouseenter', () => {
+        laptop.style.transform = 'rotateY(360deg)';
+      });
+      laptop.addEventListener('mouseleave', () => {
+        laptop.style.transform = 'rotateY(0deg)';
+      });
     });
   </script>
 
